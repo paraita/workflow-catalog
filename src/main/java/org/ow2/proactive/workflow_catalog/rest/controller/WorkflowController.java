@@ -35,7 +35,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import org.ow2.proactive.workflow_catalog.rest.dto.WorkflowMetadata;
-import org.ow2.proactive.workflow_catalog.rest.query.QueryPredicateBuilderException;
+import org.ow2.proactive.workflow_catalog.rest.query.QueryExpressionBuilderException;
 import org.ow2.proactive.workflow_catalog.rest.service.WorkflowService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -99,7 +99,7 @@ public class WorkflowController {
             @ApiParam(hidden = true)
             Pageable pageable,
             @ApiParam(hidden = true)
-            PagedResourcesAssembler assembler) throws QueryPredicateBuilderException {
+            PagedResourcesAssembler assembler) throws QueryExpressionBuilderException {
         return workflowService.listWorkflows(bucketId, query, pageable, assembler);
     }
 

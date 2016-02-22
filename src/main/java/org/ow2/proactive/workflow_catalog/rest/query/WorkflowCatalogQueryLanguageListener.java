@@ -82,13 +82,15 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
 
     private final static String NAME_TOKEN = "name";
 
+    private static final String OR_TOKEN = "OR";
+
     private final static String PROJECT_NAME_TOKEN = "project_name";
 
     private final static String GI_TOKEN = "generic_information";
 
     private final static String VAR_TOKEN = "variable";
 
-    // Map containing allowed clauses
+    // Maps that contain allowed clauses
     // They prevent to write several conditional statements
 
     private final Map<AtomicLexicalClause, Function<String, ListSubQuery<Long>>> atomicClausesToFuncMap;
@@ -304,7 +306,6 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
         }
 
         return stringListSubQueryFunction.apply(pairKey, pairValue);
-
     }
 
     private String removeQuotes(String value) {
@@ -343,7 +344,7 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
 
     @Override
     public void visitTerminal(TerminalNode terminalNode) {
-        if (terminalNode.getSymbol().getText().equals("OR")) {
+        if (terminalNode.getSymbol().getText().equals(OR_TOKEN)) {
             createContextAndMoveClauses();
             createContext();
         }

@@ -2,26 +2,21 @@ package org.ow2.proactive.workflow_catalog.rest.service.repository;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 
 import javax.xml.stream.XMLStreamException;
 
 import org.ow2.proactive.workflow_catalog.rest.Application;
 import org.ow2.proactive.workflow_catalog.rest.controller.AbstractWorkflowRevisionControllerTest;
 import org.ow2.proactive.workflow_catalog.rest.dto.BucketMetadata;
-import org.ow2.proactive.workflow_catalog.rest.entity.WorkflowRevision;
 import org.ow2.proactive.workflow_catalog.rest.util.ProActiveWorkflowParser;
 import com.google.common.io.ByteStreams;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -90,20 +85,20 @@ public class QueryDslWorkflowRevisionRepositoryIntegrationTest2 extends Abstract
     }
 
 
-    @Test
-    public void test() {
-        final Page<WorkflowRevision> custom =
-                queryDslWorkflowRevisionRepository.findCustom(bucket.id,
-                        new PageRequest(0, 100));
-
-        final List<WorkflowRevision> content = custom.getContent();
-
-        System.out.println("NB QUERY RESULT=" + content.size());
-
-        for (WorkflowRevision wr : content) {
-            System.out.println("WORKFLOW REVISION " + wr);
-        }
-
-    }
+//    @Test
+//    public void test() {
+//        final Page<WorkflowRevision> custom =
+//                queryDslWorkflowRevisionRepository.findCustom(bucket.id,
+//                        new PageRequest(0, 100));
+//
+//        final List<WorkflowRevision> content = custom.getContent();
+//
+//        System.out.println("NB QUERY RESULT=" + content.size());
+//
+//        for (WorkflowRevision wr : content) {
+//            System.out.println("WORKFLOW REVISION " + wr);
+//        }
+//
+//    }
 
 }

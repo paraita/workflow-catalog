@@ -400,8 +400,9 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
 
         @Override
         public String toString() {
-            return "Context{stackOfClauses=" + clauses + "}";
+            return "Context{stackOfClauses=" + clauses + '}';
         }
+
     }
 
     private static final class Clause {
@@ -414,8 +415,9 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
 
         @Override
         public String toString() {
-            return "Clause{listSubQuery=" + listSubQuery + "}";
+            return "Clause{listSubQuery=" + listSubQuery + '}';
         }
+
     }
 
     private Map<AtomicLexicalClause, Function<String, ListSubQuery<Long>>> initAtomicClausesToFuncMap() {

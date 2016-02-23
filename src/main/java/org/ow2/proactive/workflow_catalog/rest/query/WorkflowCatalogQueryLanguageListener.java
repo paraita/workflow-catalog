@@ -245,7 +245,8 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
     }
 
     private void log(String expression) {
-        log.debug("{}:\n\t   stackOfClauses{}\n\t  stackOfContexts{}\n\tstackOfSubQueries{}", expression, stackOfClauses, stackOfContexts, stackOfSubQueries);
+        log.debug("{}:\n\t   stackOfClauses{}\n\t  stackOfContexts{}\n\tstackOfSubQueries{}", expression,
+                stackOfClauses, stackOfContexts, stackOfSubQueries);
     }
 
     public BooleanExpression getBooleanExpression() {
@@ -259,7 +260,7 @@ public class WorkflowCatalogQueryLanguageListener implements org.ow2.proactive.w
 
         // a String literal always starts and ends by a " character
         // remove leading and trailing " character
-        stringLiteral = stringLiteral.substring(1, stringLiteral.length() - 1);
+        stringLiteral = removeQuotes(stringLiteral);
 
         AtomicLexicalClause.FieldType fieldType = getFieldType(attributeLiteral);
         Operator operator = getOperator(ctx.COMPARE_OPERATOR().getText());

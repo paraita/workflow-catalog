@@ -43,7 +43,7 @@ import java.util.List;
  * @author ActiveEon Team
  */
 @Entity
-@Table(name = "BUCKET")
+@Table(name = "BUCKET", uniqueConstraints = @UniqueConstraint(columnNames = {"NAME", "OWNER_NAME"}))
 public class Bucket {
 
     @Id
@@ -59,6 +59,9 @@ public class Bucket {
     @Column(name = "NAME", nullable = false)
     protected String name;
 
+    @Column(name = "OWNER_NAME", nullable = false)
+    protected String ownerName;
+
     @OneToMany(mappedBy = "bucket")
     private List<Workflow> workflows;
 
@@ -73,6 +76,7 @@ public class Bucket {
         this.name = name;
         this.createdAt = createdAt;
         this.workflows = Lists.newArrayList(workflows);
+        this.ownerName = "";
     }
 
     public Bucket(String name, LocalDateTime createdAt) {
